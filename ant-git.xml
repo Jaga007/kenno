@@ -77,14 +77,6 @@
 		
 
 		
-		<git command="remote">
-			<args>
-				<arg value="remove" />
-				<arg value="origin" />
-			</args>
-			
-		</git>
-		
 				<git command="remote">
 			<args>
 				<arg value="add" />
