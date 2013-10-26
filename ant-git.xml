@@ -75,14 +75,7 @@
 		
 		
 		
-		<git command="config">
-			<args>
-				<arg value="--global" />
-				<arg value="push.default" />
-				<arg value="simple" />
-			</args>
-			
-		</git>
+
 		
 		<git command="remote">
 			<args>
