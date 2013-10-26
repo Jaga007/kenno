@@ -86,6 +86,13 @@
 		
 		<git command="remote">
 			<args>
+				<arg value="-v" />
+			</args>
+			
+		</git>
+		
+		<git command="remote">
+			<args>
 				<arg value="remove" />
 				<arg value="origin" />
 			</args>
