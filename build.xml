@@ -30,7 +30,101 @@
 		</fileset>
 	</path>
 	
+
 	
+		
+	<macrodef name="git">
+		<attribute name="command" />
+		<attribute name="dir" default="" />
+		<attribute name="name" default="" />
+		<element name="args" optional="true" />
+		<sequential>
+			<echo message="git @{command}" />
+			<exec executable="git" dir="@{dir}">
+				<arg value="@{command}" />
+				<args/>
+			</exec>
+		</sequential>
+	</macrodef>
+		
+	
+	<!-- Commits all changes to version git -->
+	<target name="dist" description="Commits all changes to version git">
+		<input message="Commit message" addproperty="commit-message" />
+			
+			
+		<echo message="Commiting all changes with message ${commit-message}" />
+		<git command="add">
+			<args>
+				<arg value="-A" />
+			</args>
+		</git>
+			
+		<git command="init">
+
+		</git>
+			
+		<git command="commit">
+			<args>
+				<arg value="-m ${commit-message}" />
+			</args>
+
+		</git>
+			
+			
+			
+		<git command="config">
+			<args>
+				<arg value="--global" />
+				<arg value="push.default" />
+				<arg value="simple" />
+			</args>
+				
+		</git>
+			
+		<git command="remote">
+			<args>
+				<arg value="-v" />
+			</args>
+				
+		</git>
+			
+		<git command="remote">
+			<args>
+				<arg value="remove" />
+				<arg value="origin" />
+			</args>
+				
+		</git>
+			
+		<git command="remote">
+			<args>
+				<arg value="add" />
+				<arg value="origin" />
+				<arg value="http://github.com/Jaga007/testikene.git" />
+			</args>
+				
+		</git>
+			
+			
+		<git command="push">
+			<args>
+				<arg value="-u" />
+				<arg value="origin" />
+				<arg value="master" />
+			</args>
+				
+		</git>
+				
+			
+			
+				
+		
+	</target>
+	
+
+	 
+
 
 	<!-- Definitions of runnable ant targets.
          Run them from the command line by executing "ant [targetname]"  -->
@@ -70,7 +164,7 @@
 
 	</target>
 	
-	<target name="dist" description="generate the distribution" >
+	<target name="dist2" description="generate the distribution" >
 	    <!-- Create the distribution directory -->
 	    <mkdir dir="${dist.dir}"/>
 
@@ -97,22 +191,12 @@
 	
 	
 	<!-- Making a commit and pushing the changes -->
-	<target name="version" description="Commits all changes to version git">
-		<input message="Commit message" addproperty="commit-message" />
-		<echo message="Commiting all changes with message ${commit-message}" />
-		<git command="add">
-			<args>
-				<arg value="." />
-			</args>
-		</git>
-		<git command="commit">
-			<args>
-				<arg value="-am ${commit-message}" />
-			</args>
-		</git>
-		<git command="push" />
-	</target>
-
+		<target name="git_commit" description="Making a commit and pushing the changes">
+			<mkdir dir="${kenno}"/>
+			<javadoc destdir="${doc.dir}" classpathref="compile.classpath">
+				<fileset dir="${src.dir}" includes="**/*.java"/>
+			</javadoc>
+		</target>
 	
 	
 	
