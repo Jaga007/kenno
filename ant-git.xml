@@ -96,7 +96,7 @@
 			<args>
 				<arg value="add" />
 				<arg value="origin" />
-				<arg value="http://github.com/Jaga007/kenno.git" />
+				<arg value="http://github.com/Jaga007/testikene.git" />
 			</args>
 			
 		</git>
