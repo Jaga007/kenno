@@ -62,7 +62,9 @@
 			</args>
 		</git>
 		
-		
+		<git command="init">
+
+		</git>
 		
 		<git command="commit">
 			<args>
