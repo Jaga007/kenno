@@ -111,7 +111,7 @@
 		
 		<git command="push">
 			<args>
-				<arg value="-u" />
+				<arg value="--set-upstream" />
 				<arg value="origin" />
 				<arg value="master" />
 			</args>
