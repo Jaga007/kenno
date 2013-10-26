@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<project name="Demo" default="version" basedir=".">
+	
+	<macrodef name="git">
+		<attribute name="command" />
+		<attribute name="dir" default="" />
+		<attribute name="name" default="" />
+		<element name="args" optional="true" />
+		<sequential>
+			<echo message="git @{command}" />
+			<exec executable="git" dir="@{dir}">
+				<arg value="@{command}" />
+				<args/>
+			</exec>
+		</sequential>
+	</macrodef>
+	
+	<macrodef name = "git-remote-add">
+                <attribute name = "path" />
+                <attribute name = "branch" />
+                <attribute name = "repository" />
+                <sequential>
+                        <echo file="DUMP" message="branch: @{branch} repos: @{repository}"/>
+                        <git command = "remote"  dir="@{path}">
+                                <args>
+                                        <arg value = "add" />
+                                        <arg value = "@{branch}" />
+                                        <arg value = "@{repository}" />
+                                </args>
+                        </git>
+                </sequential>
+        </macrodef>
+	
+        <macrodef name = "git-push">
+                <attribute name = "path" />
+                <attribute name = "branch" />
+                <attribute name = "head" />
+                <sequential>
+                        <git command = "push" dir="@{path}">
+                                <args>
+                                        <arg value = "@{branch}" />
+                                        <arg value = "@{head}" />
+                                </args>
+                        </git>
+                </sequential>
+        </macrodef>
+
+
+	
+
+	
+
+ 
+	<target name="version" description="Commits all changes to version git">
+		<input message="Commit message" addproperty="commit-message" />
+		
+		
+		<echo message="Commiting all changes with message ${commit-message}" />
+		<git command="add">
+			<args>
+				<arg value="-A" />
+			</args>
+		</git>
+		
+		
+		
+		<git command="commit">
+			<args>
+				<arg value="-m ${commit-message}" />
+			</args>
+
+		</git>
+		
+		
+		
+		<git command="config">
+			<args>
+				<arg value="--global" />
+				<arg value="push.default" />
+				<arg value="simple" />
+			</args>
+			
+		</git>
+		
+		<git command="remote">
+			<args>
+				<arg value="add" />
+				<arg value="origin" />
+				<arg value="https://github.com/Jaga007/kenno.git" />
+			</args>
+			
+		</git>
+		
+		
+		<git command="push">
+			<args>
+				<arg value="-u" />
+				<arg value="origin" />
+				<arg value="master" />
+			</args>
+			
+		</git>
+			
+		
+		
+			
+	
+	</target>
+</project>
+
+ 
