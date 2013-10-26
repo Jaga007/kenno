@@ -191,7 +191,7 @@
 	
 	
 	<!-- Making a commit and pushing the changes -->
-		<target name="git_commit" description="Making a commit and pushing the changes">
+		<target name="git_commit2" description="Making a commit and pushing the changes">
 			<mkdir dir="${kenno}"/>
 			<javadoc destdir="${doc.dir}" classpathref="compile.classpath">
 				<fileset dir="${src.dir}" includes="**/*.java"/>
