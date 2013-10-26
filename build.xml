@@ -32,7 +32,8 @@
 	
 
 	
-		
+	<!-- Making a commit and pushing the changes -->
+	
 	<macrodef name="git">
 		<attribute name="command" />
 		<attribute name="dir" default="" />
@@ -48,9 +49,8 @@
 	</macrodef>
 		
 	
-	<!-- Commits all changes to version git -->
-	<target name="dist" description="Commits all changes to version git">
-		<input message="Commit message" addproperty="commit-message" />
+	<target name="git_commit" description="Making a commit and pushing the changes">
+		<input message="Your comment for commit" addproperty="commit-message" />
 			
 			
 		<echo message="Commiting all changes with message ${commit-message}" />
@@ -117,9 +117,6 @@
 		</git>
 				
 			
-			
-				
-		
 	</target>
 	
 
@@ -164,7 +161,7 @@
 
 	</target>
 	
-	<target name="dist2" description="generate the distribution" >
+	<target name="dist" description="generate the distribution" >
 	    <!-- Create the distribution directory -->
 	    <mkdir dir="${dist.dir}"/>
 
@@ -190,7 +187,7 @@
 	</target>
 	
 	
-	<!-- Making a commit and pushing the changes -->
+	<!-- Making a commit and pushing the changes1 -->
 		<target name="git_commit2" description="Making a commit and pushing the changes">
 			<mkdir dir="${kenno}"/>
 			<javadoc destdir="${doc.dir}" classpathref="compile.classpath">
