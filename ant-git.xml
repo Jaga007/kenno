@@ -17,7 +17,7 @@
 
 
  
-	<target name="version" description="Commits all changes to version git">
+	<target name="version" description="Commits all changes to version gittt">
 		<input message="Commit message" addproperty="commit-message" />
 		
 		
