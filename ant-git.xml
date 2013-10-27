@@ -16,15 +16,27 @@
 	</macrodef>
 
 
+
  
-	<target name="version" description="Commits all changes to version gittt">
-		<input message="Commit message" addproperty="commit-message" />
+	<target name="version" description="Creating a tag">
+		<input message="Tag name" addproperty="tag-name" />
 		
 		
-		<echo message="Commiting all changes with message ${commit-message}" />
-		<git command="add">
+		<echo message="Tag name is ${tag-name}" />
+		
+		<git command="tag">
 			<args>
-				<arg value="-A" />
+				<arg value="-d" />
+				<arg value="homework_5" />
+			</args>
+		</git>
+		
+		<git command="tag">
+			<args>
+				<arg value="-a" />
+				<arg value="homework_4" />
+				<arg value="-m" />
+				<arg value="${tag-name}" />
 			</args>
 		</git>
 		
@@ -32,14 +44,7 @@
 
 		</git>
 		
-		<git command="commit">
-			<args>
-				<arg value="-m ${commit-message}" />
-			</args>
-
-		</git>
-		
-		
+	
 		
 		<git command="config">
 			<args>
@@ -77,17 +82,12 @@
 		
 		<git command="push">
 			<args>
-				<arg value="-u" />
-				<arg value="origin" />
-				<arg value="master" />
+				<arg value="--tags" />
 			</args>
 			
 		</git>
 			
 		
-		
-			
-	
 	</target>
 </project>
 
