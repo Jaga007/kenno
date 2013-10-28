@@ -48,7 +48,13 @@
 		</git>
 			
 
+		<git command="pull">
+			<args>
 			
+				<arg value="--help" />
+			</args>
+				
+		</git>	
 		
 		
 		
