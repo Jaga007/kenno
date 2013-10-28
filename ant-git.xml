@@ -16,61 +16,54 @@
 	</macrodef>
 		
 	
-	<target name="version" description="Making a commit and pushing the changes">
-		<input message="Your comment for commit" addproperty="commit-comment" />
+	<target name="version" description="Creating a tag">
+		<input message="Tag name" addproperty="tag-name" />
 		<input message="Your username" addproperty="user-name" />
 		<input message="Your password" addproperty="pass-word" />	
-			
-		<echo message="Commiting all changes with message ${commit-comment}" />
+		
+		<echo message="Tag name is ${tag-name}" />
 		<echo message="Username is ${user-name}" />
-		<echo message="Password is ${pass-word}" />
-		<git command="add">
+		
+		<git command="tag">
 			<args>
-				<arg value="-A" />
+				<arg value="-a" />
+				<arg value="homework_4" />
+				<arg value="-m" />
+				<arg value="${tag-name}" />
 			</args>
 		</git>
-			
-
-			
-		<git command="commit">
-			<args>
-				<arg value="-m ${commit-comment}" />
-			</args>
-
-		</git>
-			
-			
-			
+		
+		
 		<git command="config">
 			<args>
 				<arg value="--global" />
 				<arg value="push.default" />
 				<arg value="simple" />
 			</args>
-				
-		</git>
 			
+		</git>
+		
 
 		<git command="pull">
 			<args>
-			
 				<arg value="https://github.com/Jaga007/kenno.git" />
 			</args>
-				
 		</git>	
 		
 		
 		
 		<git command="push">
 			<args>
-			
+				<arg value="--tags" />
 				<arg value="https://${user-name}:${pass-word}@github.com/Jaga007/kenno.git" />
 			</args>
-				
 		</git>
-				
-			
-	</target>	
+		
+
+		
+	</target>
+
+
 	
 </project>
 
