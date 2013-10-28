@@ -47,29 +47,7 @@
 				
 		</git>
 			
-		<git command="remote">
-			<args>
-				<arg value="-v" />
-			</args>
-				
-		</git>
-			
-		<git command="remote">
-			<args>
-				<arg value="remove" />
-				<arg value="origin" />
-			</args>
-				
-		</git>
-			
-		<git command="remote">
-			<args>
-				<arg value="add" />
-				<arg value="origin" />
-				<arg value="http://github.com/Jaga007/testikene.git" />
-			</args>
-				
-		</git>
+
 			
 		
 		
