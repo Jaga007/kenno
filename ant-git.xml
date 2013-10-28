@@ -51,7 +51,7 @@
 		<git command="pull">
 			<args>
 			
-				<arg value="https://Jaga007:123567q@github.com/Jaga007/kenno.git" />
+				<arg value="https://github.com/Jaga007/kenno.git" />
 			</args>
 				
 		</git>	
