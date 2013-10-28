@@ -14,81 +14,76 @@
 			</exec>
 		</sequential>
 	</macrodef>
-
-
-
- 
-	<target name="version" description="Creating a tag">
-		<input message="Tag name" addproperty="tag-name" />
-		
-		
-		<echo message="Tag name is ${tag-name}" />
-		
-		<git command="tag">
-			<args>
-				<arg value="-d" />
-				<arg value="homework_5" />
-			</args>
-		</git>
-		
-		<git command="tag">
-			<args>
-				<arg value="-a" />
-				<arg value="homework_4" />
-				<arg value="-m" />
-				<arg value="${tag-name}" />
-			</args>
-		</git>
-		
-		<git command="init">
-
-		</git>
 		
 	
-		
+	<target name="version" description="Making a commit and pushing the changes">
+		<input message="Your comment for commit" addproperty="commit-comment" />
+			
+			
+		<echo message="Commiting all changes with message ${commit-comment}" />
+		<git command="add">
+			<args>
+				<arg value="-A" />
+			</args>
+		</git>
+			
+
+			
+		<git command="commit">
+			<args>
+				<arg value="-m ${commit-comment}" />
+			</args>
+
+		</git>
+			
+			
+			
 		<git command="config">
 			<args>
 				<arg value="--global" />
 				<arg value="push.default" />
 				<arg value="simple" />
 			</args>
-			
+				
 		</git>
-		
+			
 		<git command="remote">
 			<args>
 				<arg value="-v" />
 			</args>
-			
+				
 		</git>
-		
+			
 		<git command="remote">
 			<args>
 				<arg value="remove" />
 				<arg value="origin" />
 			</args>
-			
+				
 		</git>
-		
+			
 		<git command="remote">
 			<args>
 				<arg value="add" />
 				<arg value="origin" />
 				<arg value="http://github.com/Jaga007/testikene.git" />
 			</args>
-			
+				
 		</git>
-		
-		
+			
+			
 		<git command="push">
 			<args>
-				<arg value="--tags" />
+				<arg value="-u" />
+				<arg value="origin" />
+				<arg value="master" />
 			</args>
-			
+				
 		</git>
+				
 			
-		
-	</target>
+	</target>	
+	
 </project>
 
  
