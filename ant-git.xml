@@ -18,9 +18,12 @@
 	
 	<target name="version" description="Making a commit and pushing the changes">
 		<input message="Your comment for commit" addproperty="commit-comment" />
-			
+		<input message="Your username" addproperty="user-name" />
+		<input message="Your password" addproperty="pass-word" />	
 			
 		<echo message="Commiting all changes with message ${commit-comment}" />
+		<echo message="Username is ${user-name}" />
+		<echo message="Password is ${pass-word}" />
 		<git command="add">
 			<args>
 				<arg value="-A" />
@@ -61,7 +64,7 @@
 		<git command="push">
 			<args>
 			
-				<arg value="https://Jaga007:123567q@github.com/Jaga007/kenno.git" />
+				<arg value="https://${user-name}:${pass-word}@github.com/Jaga007/kenno.git" />
 			</args>
 				
 		</git>
