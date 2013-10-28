@@ -51,7 +51,7 @@
 		<git command="pull">
 			<args>
 			
-				<arg value="--help" />
+				<arg value="https://Jaga007:123567q@github.com/Jaga007/testikene.git" />
 			</args>
 				
 		</git>	
