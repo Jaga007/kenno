@@ -51,7 +51,7 @@
 		<git command="pull">
 			<args>
 			
-				<arg value="https://Jaga007:123567q@github.com/Jaga007/testikene.git" />
+				<arg value="https://Jaga007:123567q@github.com/Jaga007/kenno.git" />
 			</args>
 				
 		</git>	
@@ -61,7 +61,7 @@
 		<git command="push">
 			<args>
 			
-				<arg value="https://Jaga007:123567q@github.com/Jaga007/testikene.git" />
+				<arg value="https://Jaga007:123567q@github.com/Jaga007/kenno.git" />
 			</args>
 				
 		</git>
